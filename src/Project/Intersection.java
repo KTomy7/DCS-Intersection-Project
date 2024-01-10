@@ -15,7 +15,7 @@ public class Intersection {
         PetriNet pn = new PetriNet();
         pn.PetriNetName = "Intersection";
 
-        pn.NetworkPort = 2000;
+        pn.NetworkPort = 1080;
 
         // ------------------------------------------------------------------------
 

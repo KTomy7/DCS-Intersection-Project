@@ -79,13 +79,13 @@ public class Roundabout {
         t1.InputPlaceName.add("p1");
 
         Condition T1Ct1 = new Condition(t1, "p1", TransitionCondition.HaveCarForMe);
-        Condition T1Ct2 = new Condition(t1, "p2", TransitionCondition.CanAddCars);
+        Condition T1Ct2 = new Condition(t1, "p4", TransitionCondition.CanAddCars);
         T1Ct1.SetNextCondition(LogicConnector.AND, T1Ct2);
 
         GuardMapping grdT1 = new GuardMapping();
         grdT1.condition = T1Ct1;
 
-        grdT1.Activations.add(new Activation(t1, "p1", TransitionOperation.PopElementWithTargetToQueue, "p2"));
+        grdT1.Activations.add(new Activation(t1, "p1", TransitionOperation.PopElementWithTargetToQueue, "p4"));
 
         t1.GuardMappingList.add(grdT1);
         t1.Delay = 0;
