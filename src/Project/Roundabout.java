@@ -70,7 +70,7 @@ public class Roundabout {
 
         DataTransfer p10_0 = new DataTransfer();
         p10_0.SetName("p10_0");
-        p10_0.Value = new TransferOperation("localhost", "1090", "P6");
+        p10_0.Value = new TransferOperation("localhost", "1080", "P_a3");
         pn.PlaceList.add(p10_0);
 
         // T1------------------------------------------------------------------------
@@ -133,13 +133,13 @@ public class Roundabout {
         t4.InputPlaceName.add("p4");
 
         Condition T4Ct1 = new Condition(t4, "p4", TransitionCondition.HaveCarForMe);
-        Condition T4Ct2 = new Condition(t3, "p3", TransitionCondition.CanAddCars);
+        Condition T4Ct2 = new Condition(t4, "p3", TransitionCondition.CanAddCars);
         T4Ct1.SetNextCondition(LogicConnector.AND, T4Ct2);
 
         GuardMapping grdT4 = new GuardMapping();
         grdT4.condition = T4Ct1;
 
-        grdT4.Activations.add(new Activation(t4, "p4", TransitionOperation.PopElementWithTarget, "p3"));
+        grdT4.Activations.add(new Activation(t4, "p4", TransitionOperation.PopElementWithTargetToQueue, "p3"));
 
         t4.GuardMappingList.add(grdT4);
         t4.Delay = 0;
@@ -229,7 +229,7 @@ public class Roundabout {
         GuardMapping grdt9 = new GuardMapping();
         grdt9.condition = t9Ct1;
 
-        grdt9.Activations.add(new Activation(t9, "p9", TransitionOperation.AddElement, "p3"));
+        grdt9.Activations.add(new Activation(t9, "p9", TransitionOperation.AddElement, "p9"));
 
         t9.GuardMappingList.add(grdt9);
         t9.Delay = 0;
